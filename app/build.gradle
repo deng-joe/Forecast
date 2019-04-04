@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -33,4 +37,60 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.1.1'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.0.0'
+    testImplementation 'androidx.room:room-testing:2.0.0'
+    kapt 'androidx.room:room-compiler:2.0.0'
+
+    // Lifecycle components
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'androidx.arch.core:core-testing:2.0.1'
+    kapt 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+
+    // Kodein
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.1.0'
+    implementation 'org.kodein.di:kodein-di-framework-android-x:6.1.0'
+
+    // Better dateTime support
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // Groupie RecyclerView
+    implementation 'com.xwray:groupie:2.3.0'
+    implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
+
+    // Preference
+    implementation 'androidx.preference:preference:1.1.0-alpha04'
+
+    // Location
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    // New Material Design
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+
+    // Toasty
+    implementation 'com.github.GrenderG:Toasty:1.4.1'
 }
