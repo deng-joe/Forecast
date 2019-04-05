@@ -1,4 +1,4 @@
-package com.joe.forecast.data.response
+package com.joe.forecast.data.db.entity
 
 data class Condition(
     val code: Int,

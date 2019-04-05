@@ -52,9 +52,11 @@ dependencies {
 
     // Lifecycle components
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'androidx.arch.core:core-testing:2.0.1'
     kapt 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+
+    // Use APIs for older platforms
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Gson
     implementation 'com.google.code.gson:gson:2.8.5'
