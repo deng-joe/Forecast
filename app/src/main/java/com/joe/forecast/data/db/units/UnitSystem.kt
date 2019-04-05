@@ -1,4 +1,4 @@
-package com.joe.forecast.data.db.unitlocalized
+package com.joe.forecast.data.db.units
 
 interface UnitSystem {
     val temperature: Double

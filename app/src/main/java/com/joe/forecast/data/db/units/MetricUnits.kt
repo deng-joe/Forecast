@@ -1,4 +1,4 @@
-package com.joe.forecast.data.db.unitlocalized
+package com.joe.forecast.data.db.units
 
 import androidx.room.ColumnInfo
 
@@ -15,7 +15,7 @@ data class MetricUnits(
     override val windDirection: String,
     @ColumnInfo(name = "precipMm")
     override val precipitation: Double,
-    @ColumnInfo(name = "feelsLikeC")
+    @ColumnInfo(name = "feelslikeC")
     override val feelsLikeTemperature: Double,
     @ColumnInfo(name = "visKm")
     override val visibility: Double

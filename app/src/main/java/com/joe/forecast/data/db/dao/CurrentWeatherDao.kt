@@ -7,8 +7,8 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.joe.forecast.data.db.entity.CURRENT_WEATHER_ID
 import com.joe.forecast.data.db.entity.CurrentWeather
-import com.joe.forecast.data.db.unitlocalized.ImperialUnits
-import com.joe.forecast.data.db.unitlocalized.MetricUnits
+import com.joe.forecast.data.db.units.ImperialUnits
+import com.joe.forecast.data.db.units.MetricUnits
 
 @Dao
 interface CurrentWeatherDao {
