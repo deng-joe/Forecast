@@ -1,27 +1,24 @@
 package com.joe.forecast.ui.weather.current
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-
+import androidx.lifecycle.ViewModelProviders
 import com.joe.forecast.R
-import com.joe.forecast.data.network.ApixuWeatherApiService
-import com.joe.forecast.data.network.ConnectivityInterceptorImpl
-import com.joe.forecast.data.network.WeatherNetworkDataSourceImpl
+import com.joe.forecast.ui.base.ScopedFragment
 import kotlinx.android.synthetic.main.current_weather_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.instance
 
-class CurrentWeatherFragment : Fragment() {
+class CurrentWeatherFragment : ScopedFragment(), KodeinAware {
 
-    companion object {
-        fun newInstance() = CurrentWeatherFragment()
-    }
+    override val kodein by kodein()
+
+    private val viewModelFactory: CurrentWeatherViewModelFactory by instance()
 
     private lateinit var viewModel: CurrentWeatherViewModel
 
@@ -34,19 +31,17 @@ class CurrentWeatherFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
-        // TODO: Use the ViewModel
-        val apiService =
-            ApixuWeatherApiService(ConnectivityInterceptorImpl(this.context!!))
-        val dataSource = WeatherNetworkDataSourceImpl(apiService)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(CurrentWeatherViewModel::class.java)
 
-        dataSource.downloadedCurrentWeather.observe(this, Observer {
+        bindUI()
+    }
+
+    private fun bindUI() = launch {
+        val currentWeather = viewModel.weather.await()
+        currentWeather.observe(this@CurrentWeatherFragment, Observer {
+            if (it == null) return@Observer
             textView.text = it.toString()
         })
-
-        GlobalScope.launch(Dispatchers.Main) {
-            dataSource.fetchCurrentWeather("Juba", "en")
-        }
     }
 
 }
