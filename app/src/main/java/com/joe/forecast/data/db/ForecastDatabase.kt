@@ -15,7 +15,7 @@ import com.joe.forecast.data.db.utils.LocalDateConverter
 
 @Database(
     entities = [CurrentWeather::class, FutureWeather::class, WeatherLocation::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(LocalDateConverter::class)

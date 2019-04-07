@@ -1,8 +1,6 @@
 package com.joe.forecast.data.provider
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import com.joe.forecast.internal.UnitSystem
 
 const val UNIT_SYSTEM = "UNIT_SYSTEM"
