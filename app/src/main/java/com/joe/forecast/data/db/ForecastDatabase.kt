@@ -10,9 +10,14 @@ import com.joe.forecast.data.db.dao.current.WeatherLocationDao
 import com.joe.forecast.data.db.dao.future.FutureWeatherDao
 import com.joe.forecast.data.db.entity.current.CurrentWeather
 import com.joe.forecast.data.db.entity.current.WeatherLocation
+import com.joe.forecast.data.db.entity.future.FutureWeather
 import com.joe.forecast.data.db.utils.LocalDateConverter
 
-@Database(entities = [CurrentWeather::class, WeatherLocation::class], version = 1, exportSchema = false)
+@Database(
+    entities = [CurrentWeather::class, FutureWeather::class, WeatherLocation::class],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(LocalDateConverter::class)
 abstract class ForecastDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): CurrentWeatherDao
