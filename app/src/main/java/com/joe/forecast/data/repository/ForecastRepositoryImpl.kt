@@ -1,10 +1,10 @@
 package com.joe.forecast.data.repository
 
 import androidx.lifecycle.LiveData
-import com.joe.forecast.data.db.dao.CurrentWeatherDao
-import com.joe.forecast.data.db.dao.WeatherLocationDao
-import com.joe.forecast.data.db.entity.WeatherLocation
-import com.joe.forecast.data.db.units.UnitSystem
+import com.joe.forecast.data.db.dao.current.CurrentWeatherDao
+import com.joe.forecast.data.db.dao.current.WeatherLocationDao
+import com.joe.forecast.data.db.entity.current.WeatherLocation
+import com.joe.forecast.data.db.units.current.UnitSystem
 import com.joe.forecast.data.network.WeatherNetworkDataSource
 import com.joe.forecast.data.network.response.CurrentWeatherResponse
 import com.joe.forecast.data.provider.LocationProvider

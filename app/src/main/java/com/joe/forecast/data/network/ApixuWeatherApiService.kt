@@ -2,6 +2,7 @@ package com.joe.forecast.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.joe.forecast.data.network.response.CurrentWeatherResponse
+import com.joe.forecast.data.network.response.FutureWeatherResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -21,6 +22,14 @@ interface ApixuWeatherApiService {
         @Query("q") location: String,
         @Query("lang") languageCode: String = "en"
     ): Deferred<CurrentWeatherResponse>
+
+    // https://api.apixu.com/v1/forecast.json?key=b37d56eab5e24f7ca7c50711190504&q=Nairobi&days=1
+    @GET("forecast.json")
+    fun getFutureWeather(
+        @Query("q") location: String,
+        @Query("days") days: Int,
+        @Query("lang") languageCode: String = "en"
+    ): Deferred<FutureWeatherResponse>
 
     companion object {
         operator fun invoke(connectivityInterceptor: ConnectivityInterceptor): ApixuWeatherApiService {
