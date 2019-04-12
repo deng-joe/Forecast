@@ -1,12 +1,12 @@
-package com.joe.forecast.data.db.units.future
+package com.joe.forecast.data.db.units.future.list
 
 import androidx.room.ColumnInfo
 import org.threeten.bp.LocalDate
 
-class FutureImperialUnits(
+class FutureMetricUnits(
     @ColumnInfo(name = "date")
     override val date: LocalDate,
-    @ColumnInfo(name = "avgTempF")
+    @ColumnInfo(name = "avgtempC")
     override val avgTemperature: Double,
     @ColumnInfo(name = "condition_text")
     override val conditionText: String,

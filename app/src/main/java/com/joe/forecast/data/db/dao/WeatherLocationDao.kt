@@ -1,4 +1,4 @@
-package com.joe.forecast.data.db.dao.current
+package com.joe.forecast.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

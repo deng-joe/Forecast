@@ -1,8 +1,8 @@
 package com.joe.forecast.ui.weather.future.list
 
 import com.joe.forecast.R
-import com.joe.forecast.data.db.units.future.FutureMetricUnits
-import com.joe.forecast.data.db.units.future.FutureUnitSystem
+import com.joe.forecast.data.db.units.future.list.FutureMetricUnits
+import com.joe.forecast.data.db.units.future.list.FutureUnitSystem
 import com.joe.forecast.internal.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder

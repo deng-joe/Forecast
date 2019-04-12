@@ -1,4 +1,4 @@
-package com.joe.forecast.data.db.units.future
+package com.joe.forecast.data.db.units.future.list
 
 import org.threeten.bp.LocalDate
 

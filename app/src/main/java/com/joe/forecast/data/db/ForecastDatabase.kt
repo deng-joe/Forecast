@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.joe.forecast.data.db.dao.current.CurrentWeatherDao
-import com.joe.forecast.data.db.dao.current.WeatherLocationDao
-import com.joe.forecast.data.db.dao.future.FutureWeatherDao
+import com.joe.forecast.data.db.dao.CurrentWeatherDao
+import com.joe.forecast.data.db.dao.WeatherLocationDao
+import com.joe.forecast.data.db.dao.FutureWeatherDao
 import com.joe.forecast.data.db.entity.current.CurrentWeather
 import com.joe.forecast.data.db.entity.current.WeatherLocation
 import com.joe.forecast.data.db.entity.future.FutureWeather
