@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.joe.forecast.data.db.entity.current.WeatherLocation
 import com.joe.forecast.internal.LocationPermissionNotGrantedException
-import com.joe.forecast.internal.asDeferred
+import com.joe.forecast.internal.asDeferredAsync
 import kotlinx.coroutines.Deferred
 
 const val USE_DEVICE_LOCATION = "USE_DEVICE_LOCATION"
@@ -33,7 +33,7 @@ class LocationProviderImpl(private val fusedLocationProviderClient: FusedLocatio
     override suspend fun getPreferredLocationString(): String {
         if (isUsingDeviceLocation()) {
             try {
-                val deviceLocation = getLastDeviceLocation().await() ?: return "${getCustomLocationName()}"
+                val deviceLocation = getLastDeviceLocationAsync().await() ?: return "${getCustomLocationName()}"
                 return "${deviceLocation.latitude}, ${deviceLocation.longitude}"
             } catch (e: LocationPermissionNotGrantedException) {
                 return "${getCustomLocationName()}"
@@ -47,7 +47,7 @@ class LocationProviderImpl(private val fusedLocationProviderClient: FusedLocatio
         if (!isUsingDeviceLocation())
             return false
 
-        val deviceLocation = getLastDeviceLocation().await() ?: return false
+        val deviceLocation = getLastDeviceLocationAsync().await() ?: return false
 
         // Comparing doubles cannot be done with "=="
         val comparisonThreshold = 0.03
@@ -73,9 +73,9 @@ class LocationProviderImpl(private val fusedLocationProviderClient: FusedLocatio
     }
 
     @SuppressLint("MissingPermission")
-    private fun getLastDeviceLocation(): Deferred<Location?> {
+    private fun getLastDeviceLocationAsync(): Deferred<Location?> {
         return if (hasLocationPermission())
-            fusedLocationProviderClient.lastLocation.asDeferred()
+            fusedLocationProviderClient.lastLocation.asDeferredAsync()
         else
             throw LocationPermissionNotGrantedException()
     }

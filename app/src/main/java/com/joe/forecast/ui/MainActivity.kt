@@ -13,7 +13,6 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationResult
 import com.joe.forecast.R
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,11 +26,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
     override val kodein by kodein()
     private val fusedLocationProviderClient: FusedLocationProviderClient by instance()
 
-    private val locationCallback = object : LocationCallback() {
-        override fun onLocationResult(p0: LocationResult?) {
-            super.onLocationResult(p0)
-        }
-    }
+    private val locationCallback = object : LocationCallback() {}
 
     private lateinit var navController: NavController
 

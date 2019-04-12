@@ -18,14 +18,14 @@ const val API_KEY = "b37d56eab5e24f7ca7c50711190504"
 interface ApixuWeatherApiService {
 
     @GET("current.json")
-    fun getCurrentWeather(
+    fun getCurrentWeatherAsync(
         @Query("q") location: String,
         @Query("lang") languageCode: String = "en"
     ): Deferred<CurrentWeatherResponse>
 
     // https://api.apixu.com/v1/forecast.json?key=b37d56eab5e24f7ca7c50711190504&q=Nairobi&days=1
     @GET("forecast.json")
-    fun getFutureWeather(
+    fun getFutureWeatherAsync(
         @Query("q") location: String,
         @Query("days") days: Int,
         @Query("lang") languageCode: String = "en"
